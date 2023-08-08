@@ -9,10 +9,12 @@ app.use(cors());
 
 
 const userRouter = require("./features/user/user.router");
+const propertyRouter = require("./features/property/property.router");
 
 
 
 app.use("/user",userRouter);
+app.use("/property",propertyRouter);
 
 app.get("/", async(req, res)=>{
     try{
