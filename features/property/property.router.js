@@ -32,7 +32,7 @@ app.post("/create", async(req,res) => {
 app.get("/:id", async(req, res)=>{
     try{
         let id = req.params.id ;
-        let output = await Property.find({"user":id});
+        let output = await Property.find({"_id":id});
         res.send(output);
    }
    catch(err){
