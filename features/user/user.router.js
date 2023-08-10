@@ -23,4 +23,15 @@ app.post("/login",async(req,res) =>{
 
 }) 
 
+app.get("/:id", async(req, res)=>{
+    try{
+        let id = req.params.id ;
+        let output = await User.findOne({"_id":id});
+        res.send(output);
+   }
+   catch(err){
+       res.status(500).send(err.message);
+   }
+})
+
 module.exports =app; 

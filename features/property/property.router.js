@@ -40,6 +40,18 @@ app.get("/:id", async(req, res)=>{
    }
 })
 
+app.get("/location/:location", async(req, res)=>{
+    try{
+        let location = req.params.location ;
+        console.log(location);
+        let output = await Property.find({"location":location});
+        res.send(output);
+   }
+   catch(err){
+       res.status(500).send(err.message);
+   }
+})
+
 app.patch("/:id",  async (req, res) => {
     try {
       const { id } = req.params;
